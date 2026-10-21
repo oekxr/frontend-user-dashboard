@@ -2,7 +2,7 @@
 
 SPA React untuk menampilkan user dari DummyJSON (data contoh publik). UI saya buat sendiri menggunakan Tailwind CSS, tanpa template dashboard.
 
-## Menjalankan proyek
+## Menjalankan proyek secara lokal
 
 Gunakan Node.js 22.12+ pada versi mayor 22 dan npm. Proyek ini diperiksa menggunakan Node.js 22.18.0.
 
@@ -12,15 +12,6 @@ npm run dev
 ```
 
 Buka alamat lokal yang muncul di terminal.
-
-Pemeriksaan sebelum deploy:
-
-```sh
-npm run lint
-npm run build
-```
-
-Hasil build tersimpan di folder `dist`.
 
 ## Fitur
 
