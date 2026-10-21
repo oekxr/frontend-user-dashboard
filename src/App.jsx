@@ -24,32 +24,40 @@ function App() {
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-900 antialiased">
-      <header className="border-b border-slate-200 bg-white">
-        <div className="mx-auto flex max-w-5xl items-center gap-3 px-5 py-5 sm:px-8">
-          <span className="flex size-10 items-center justify-center rounded-xl bg-emerald-700 text-sm font-bold text-white" aria-hidden="true">
-            UD
-          </span>
-          <p className="font-semibold tracking-tight">User Dashboard</p>
-        </div>
-      </header>
       <main className="mx-auto max-w-5xl px-5 py-8 sm:px-8 sm:py-10">
         <section aria-labelledby="users-heading" className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
           <div className="border-b border-slate-200 px-6 py-5">
             <h2 id="users-heading" className="text-lg font-semibold">
-              Daftar user
+              Tabel User
             </h2>
-            <label htmlFor="user-search" className="mt-5 block text-sm font-medium text-slate-700">
+            <label htmlFor="user-search" className="sr-only">
               Cari user
             </label>
-            <input
-              id="user-search"
-              type="search"
-              value={search}
-              onChange={(event) => handleSearch(event.target.value)}
-              disabled={isLoading || Boolean(error)}
-              placeholder="Cari nama atau email..."
-              className="mt-2 w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm placeholder:text-slate-400 focus:border-emerald-700 focus:outline-2 focus:outline-offset-2 focus:outline-emerald-700 disabled:bg-slate-50 disabled:text-slate-400"
-            />
+            <div className="relative mt-4">
+              <input
+                id="user-search"
+                type="search"
+                value={search}
+                onChange={(event) => handleSearch(event.target.value)}
+                disabled={isLoading || Boolean(error)}
+                placeholder="Cari nama atau email..."
+                className="w-full rounded-lg border border-slate-300 bg-white py-3 pr-12 pl-4 text-sm placeholder:text-slate-400 focus:border-emerald-700 focus:outline-2 focus:outline-offset-2 focus:outline-emerald-700 disabled:bg-slate-50 disabled:text-slate-400"
+              />
+              <svg
+                aria-hidden="true"
+                focusable="false"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="pointer-events-none absolute top-1/2 right-4 size-5 -translate-y-1/2 text-slate-400"
+              >
+                <circle cx="10.5" cy="10.5" r="6.5" />
+                <path d="m16 16 4 4" />
+              </svg>
+            </div>
             {!isLoading && !error && query && (
               <p className="mt-3 text-sm text-slate-500">
                 {filteredUsers.length} hasil dari {users.length} user
