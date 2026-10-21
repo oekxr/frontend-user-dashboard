@@ -5,11 +5,17 @@ export default function UserTable({ users, onSelect, page, pageCount, onPageChan
   return (
     <>
       <div className="hide-scrollbar overflow-x-auto focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-emerald-700" role="region" aria-label="Tabel user, geser untuk melihat semua kolom" tabIndex={0}>
-        <table className="w-full min-w-160 text-left text-sm">
+        <table className="w-full min-w-160 table-fixed text-left text-sm">
           <caption className="sr-only">Daftar user. Pilih nama untuk membuka profil user.</caption>
+          <colgroup>
+            <col className="w-16" />
+            <col className="w-[24%]" />
+            <col className="w-[40%]" />
+            <col />
+          </colgroup>
           <thead className="border-b border-slate-200 bg-slate-50 text-xs uppercase tracking-wide text-slate-500">
             <tr>
-              <th scope="col" className="w-16 px-6 py-3.5 font-medium">
+              <th scope="col" className="px-6 py-3.5 font-medium">
                 No.
               </th>
               <th scope="col" className="px-4 py-3.5 font-medium">
@@ -39,13 +45,13 @@ export default function UserTable({ users, onSelect, page, pageCount, onPageChan
                     type="button"
                     aria-label={`Buka profil ${user.name}`}
                     aria-haspopup="dialog"
-                    className="cursor-pointer rounded text-left text-slate-900 hover:text-emerald-700 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-700"
+                    className="max-w-full cursor-pointer rounded text-left wrap-anywhere text-slate-900 hover:text-emerald-700 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-700"
                   >
                     {user.name}
                   </button>
                 </th>
-                <td className="px-4 py-4 text-slate-600">{user.email}</td>
-                <td className="px-6 py-4 text-slate-600">{user.company?.name || "—"}</td>
+                <td className="px-4 py-4 text-slate-600 wrap-anywhere">{user.email}</td>
+                <td className="px-6 py-4 text-slate-600 wrap-anywhere">{user.company?.name || "—"}</td>
               </tr>
             ))}
           </tbody>
@@ -79,3 +85,4 @@ export default function UserTable({ users, onSelect, page, pageCount, onPageChan
     </>
   );
 }
+
